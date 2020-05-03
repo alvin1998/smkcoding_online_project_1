@@ -2,6 +2,8 @@ package com.smkcoding.projectsatu
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -19,6 +21,7 @@ class ProfilActivity : AppCompatActivity() {
         ambilData()
 
         btn_edit.setOnClickListener { halamEdit()}
+        btn_tlp.setOnClickListener { telpon(txtTlp.text.toString())}
     }
     private fun ambilData(){
         val bundle = intent.extras
@@ -56,6 +59,13 @@ class ProfilActivity : AppCompatActivity() {
                 Toast.makeText(this, "Edit Gagal",
                     Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+    private fun telpon(phoneNumber: String) {
+        val intent = Intent(Intent.ACTION_DIAL).apply {  data = Uri.parse("tel:$phoneNumber")
+        }
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
         }
     }
 }
