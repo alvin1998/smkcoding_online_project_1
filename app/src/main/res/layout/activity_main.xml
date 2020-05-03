@@ -10,9 +10,9 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:src="@drawable/logo"
-        android:layout_width="250dp"
-        android:layout_height="250dp" />
+        android:src="@mipmap/ic_lnc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

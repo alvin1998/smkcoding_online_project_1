@@ -22,6 +22,7 @@ class ProfilActivity : AppCompatActivity() {
 
         btn_edit.setOnClickListener { halamEdit()}
         btn_tlp.setOnClickListener { telpon(txtTlp.text.toString())}
+        btn_about.setOnClickListener { about()}
     }
     private fun ambilData(){
         val bundle = intent.extras
@@ -67,5 +68,17 @@ class ProfilActivity : AppCompatActivity() {
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
         }
+    }
+    private  fun about(){
+        val intent = Intent(this, AboutActivity::class.java)
+        val namaUser = txtName.text.toString()
+        val emailUser = txtEmail.text.toString()
+        val tlpUser = txtTlp.text.toString()
+        val alamatUser = txtAlamat.text.toString()
+        intent.putExtra("nama", namaUser)
+        intent.putExtra("email", emailUser)
+        intent.putExtra("tlp", tlpUser)
+        intent.putExtra("alamat", alamatUser)
+        startActivity(intent)
     }
 }
